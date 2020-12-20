@@ -60,7 +60,7 @@ static GstFlowReturn appsink_new_sample_callback(GstAppSink *slt,gpointer user_d
         return GST_FLOW_ERROR;
     }
     data.yuvBuffer.resize(map_info.size);
-    g_printerr ("on app_sink_new_sample size %ld\n",map_info.size);
+    g_printerr ("on app_sink_new_sample size %.2fk\n",map_info.size/1024.00);
     gst_buffer_extract(buffer, 0, data.yuvBuffer.data(),map_info.size);
     //render using map_info.data
     data.timestamp=getTimeStamp();
